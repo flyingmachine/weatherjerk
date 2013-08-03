@@ -1,0 +1,13 @@
+node_modules
+dist
+.tmp
+.sass-cache
+*#*
+.lein-env
+.vagrant
+*.jar
+html-app/app/components
+server/resources/html-app
+infrastructure/ansible/prod*
+infrastructure/ansible/demo
+infrastructure/ansible/files/env

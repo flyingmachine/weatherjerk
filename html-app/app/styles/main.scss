@@ -1,0 +1,357 @@
+// Imports -----------------------------------------------------------
+@import "compass/reset";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/border-radius";
+@import "compass/typography/vertical_rhythm"; // http://compass-style.org/reference/compass/typography/vertical_rhythm/
+@import "compass/css3/box-shadow";
+@import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
+@import "compass/css3/transform";
+@import "compass/css3/";
+
+@import "susy"; // grid
+
+// Grid variables
+$column-width   : 4em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+$base-line-height: 24px;
+$total-columns  : 12;
+
+@import "base";
+@import "formalize";
+
+// To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
+@include establish-baseline;
+
+body {
+  color: #444;
+  @include serif-family;
+}
+
+h2 {
+  @include sans-family;
+  @include adjust-font-size-to(30px, 1);
+  @include trailer(1, 30px);
+  @include padding-trailer(.5, 30px);
+  @include leader(.5, 30px);
+  border-bottom: 1px solid #666;
+}
+
+h2:first-child, h2.first {
+  margin-top:0;
+}
+
+h3 {
+  @include sans-family;
+  @include adjust-font-size-to(21px, 1);
+  @include box-sizing(border-box);
+  @include leader(1, 21px);
+  @include trailer(.5, 21px);
+}
+
+h4 {
+  @include sans-family;
+  @include adjust-font-size-to(17px, 1);
+  @include box-sizing(border-box);
+  @include leader(1, 17px);
+  @include trailer(.5, 17px);
+}
+
+#signup h3, .chunk h3:first-child {
+  margin-top:0;
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+}
+
+a:visited {
+  color: $purple;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p, blockquote {
+  @include trailer;
+}
+
+blockquote {
+  background: #f0fafd;
+  padding: .5em 1em;
+
+  cite {
+    @include leader(-1);
+    display: block;
+    text-align: right;
+    font-style: italic;
+  }
+}
+
+ul {
+  list-style: disc inside;
+  @include trailer;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+sup {
+  vertical-align: super;
+  @include adjust-font-size-to(12px);
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.masthead {
+  @include container;
+  @include leader(1);
+
+  .content {
+    @include span-columns(9);
+  }
+
+  .logo {
+    @include span-columns(5, 9);
+  }
+  
+  blockquote {
+    @include span-columns(4 omega, 9);
+    background: none;
+    padding: 0;
+    margin:0;
+    color:#555;
+    cite {
+      display:block;
+      font-style:italic;
+    }
+  }
+
+  .intro a {
+    display:none;
+  }
+}
+
+.pagination {
+  a, span {
+    background: rgba(255, 255, 255, 0.3);
+    @include border-radius(3px);
+    color: #444;
+    @include padding-leader(.25);
+    @include padding-trailer(.25);
+    padding-left: .5em;
+    padding-right: .5em;
+    display: block;
+    float: left;
+    margin: 0 .25em 0 0;
+    
+    &:hover, &.current {
+      text-decoration:none;
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+#new-comment {
+  h3 {
+    margin:0;
+    @include trailer(.5);
+  }
+}
+
+#tips {
+  @include chunk;
+}
+
+form {
+  @include sans-family;
+  @include adjust-font-size-to(14px);
+}
+
+table.input {
+  @include trailer(.5);
+  td {
+    @include padding-trailer(0.5);
+  }
+
+  tr:last-child td {
+    padding-bottom:0
+  }
+  
+  .label {
+    height: 100%;
+    vertical-align:top;
+  }
+  label {
+    text-align:right;
+    padding-right: 10px;
+    display:block;
+  }
+}
+
+.action {
+  @include leader;
+}
+
+.errors {
+  color: $red;
+  @include adjust-font-size-to(15px);
+}
+
+.success {
+  background: $medium-green;
+  padding: 0 $gutter-width;
+  @include trailer;
+}
+
+.sub-section {
+  @include box-sizing(border-box);
+  border-bottom: 1px dotted #ccc;
+  @include padding-trailer;
+
+  &:last-child {
+    @include padding-trailer(.5);
+    border-bottom: none;
+  }
+}
+
+.markdown-help {
+  @include leader(2);
+  table {
+    width: 100%;
+  }
+  td:first-child {
+    width: 50%;
+  }
+  td {
+    padding: 0 .5em;
+    border: 1px solid #eee;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.formatting-help {
+  float:right;
+  @include alt-font;
+}
+
+#signup {
+  padding: (.5 * $base-line-height) $gutter-width;
+  background: $medium-green;
+  @include border-radius(3px);
+  border: 1px solid #a6e5a4;
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+#login {
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.fancy #login {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0 1em;
+  @include padding-leader;
+  @include padding-trailer;
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+form tr td:first-child{
+  height: 100%;
+  vertical-align: top;
+}
+
+.error {
+  color: #cb5d6d;
+}
+
+
+input.ng-dirty.ng-invalid {
+}
+
+input.ng-valid {
+}
+
+input.ng-pristine {
+
+}
+
+#new-topic {
+  @include chunk;
+  @include padding-trailer;
+  border-bottom: rhythm(.5) solid $medium-green;
+  textarea {
+    height: 3 * $base-line-height;
+  }
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.actions {
+  @include clearfix;
+  .save, .cancel {
+    float: left;
+    margin-right: .5em;
+  }
+  .toggle-formatting-help {
+    float: right;
+    margin-right: .5em;
+  }
+  a {
+    @include adjust-font-size-to(14px);
+    font-weight:bold;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.edit {
+  float:right;
+  margin-left: .5em;
+  display: none;
+  &:hover {
+    cursor: pointer;
+    color: $blue;
+  }
+}
+
+.chunk {
+  @include chunk;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#mailing-list {
+  padding: 0 1em;
+  position: absolute;
+  bottom: rhythm(1);
+  text-align: right;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+@import "layout";

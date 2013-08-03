@@ -1,0 +1,126 @@
+@import "base";
+
+.container {
+  // page acts as a container for our grid.
+  @include container;
+  @include trailer;
+  @include leader;
+}
+
+nav.primary, .fancy {
+  @include padding-trailer;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 223px;
+  background: rgba(252, 236, 205, .2); // orange
+  
+  @include transition-property("all");
+  @include transition-duration(".3s");
+  &:hover {
+    background: rgba(252, 236, 205, .4); // orange
+    //background: rgba(116, 147, 218, .4);
+
+    ul a {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @include padding-leader;
+
+  ul {
+    @include trailer;
+    list-style: none;
+
+    a {
+      background: rgba(255, 255, 255, 0.3);
+      color: #444;
+      // @include bshadow;
+      height: rhythm() - rhythm(.05);
+      @include sans-family;
+      @include trailer(.05);
+      @include padding-leader(.5);
+      @include padding-trailer(.5);
+      @include transition-property("all");
+      @include transition-duration(".3s");
+      padding-left: .5em;
+      padding-right: .5em;
+      display: block;
+      text-align: right;
+
+      &:hover {
+        text-decoration:none;
+        background: rgba(255, 255, 255, .8);
+      }
+
+      &:visited {
+        color: #444;
+      }
+    }
+  }
+}
+
+.fancy {
+  table label {
+    text-align: left;
+  }
+}
+
+nav.secondary {
+  @include leader;
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    background: rgba(255, 255, 255, 0.3);
+    color: #444;
+    // @include bshadow;
+    height: rhythm() - rhythm(.05);
+    @include border-radius(2px);
+    @include sans-family;
+    @include trailer(.05);
+    @include padding-leader(.5);
+    @include padding-trailer(.5);
+    @include transition-property("all");
+    @include transition-duration(".3s");
+    padding-left: .5em;
+    padding-right: .5em;
+    display: block;
+    text-align: left;
+
+    &:hover, &.active {
+      text-decoration: none;
+      background: rgba(255, 255, 255, .8);
+    }
+
+    &:visited {
+      color: #444;
+    }
+  }
+
+  .about {
+    @include leader(2.5);
+  }
+}
+
+.secondary {
+  @include leader;
+  @include trailer;
+}
+
+#main {
+  @include span-columns(6, 12);
+  @include push(3);
+}
+
+#more {
+  @include span-columns(3 omega, 12);
+  @include padding-trailer;
+}
+
+.vertical-fields {
+  .field {
+    @include trailer;
+  }
+}

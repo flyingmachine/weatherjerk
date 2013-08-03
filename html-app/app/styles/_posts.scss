@@ -1,0 +1,176 @@
+#main .post {
+  @include chunk;
+  @include padding-trailer(.5);
+
+  header, footer {
+    @include alt-font;
+  }
+
+  header {
+    float:right;
+  }
+  
+  footer {
+    @include clearfix;
+    @include leader;
+    @include box-sizing(border-box);
+    @include padding-leader(.5);
+    position: relative;
+    padding-left: 28px;
+    border-top: 1px solid #eee;
+
+    // Fade
+    color: #999;
+    // a {
+    //   color: #aac2e5;
+    // }
+    // a:visited {
+    //   color: #a99de3;
+    // }
+
+    .gravatar {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .content {
+    @include adjust-font-size-to(18px);
+
+    p:last-child {
+      margin-bottom:0;
+    }
+
+    .controls {
+      @include alt-font;
+      @include adjust-font-size-to(13px, 1, 18px);
+      
+      .formatting-help {
+        @include adjust-font-size-to(13px, 1, 13px);
+      }  
+    }
+  }
+
+  
+  .author {
+    font-weight:bold;
+    line-height: 22px;
+    float: left;
+    margin-right:.5em;
+  }
+
+  .date {
+    float:left;
+  }
+
+  .comments, .unread-count {
+    float:right;
+    margin-right:.5em;
+  }
+  
+  .like {
+    margin-left: .5em;
+    float:right;
+    display:block;
+    color: #aaa;
+    
+    &:hover, &.liked {
+      color:#333;
+      text-decoration:none;
+      cursor: pointer;
+    }
+
+
+    &.added {
+      background: #ebf4f6;
+      color: $blue;
+      @include transition-property("all");
+      @include rotate(360deg);
+      @include transition-duration(".5s");
+      position: relative;
+      left: 1px;
+    }
+  }
+
+  .moderate {
+    float:right;
+    margin-left: .5em;
+  }
+
+  &:hover .edit, &.editing .edit {
+    display: block;
+  }
+
+  textarea {
+    @include adjust-font-size-to(18px, 1, 18px);
+  }
+
+  input.delete {
+    @include background-image(linear-gradient(white, #f1d8df));
+    float: right;
+  }
+
+  &.deleted {
+    opacity: 0.5;
+
+    .like  {
+      display: none;
+    }
+  }
+}
+
+#post .comment footer {
+  border: none;
+  margin: 0;
+  float: left;
+  color: #999;
+
+  a {
+    color: #aac2e5;
+    &:visited {
+      color: #9889dd;
+    }
+  }
+}
+
+textarea {
+  width:100%;
+  @include box-sizing(border-box);
+  @include adjust-font-size-to(18px);
+  @include serif-family;
+  @include trailer(.5, 18px);
+  border: 1px solid #ddd;
+  height: 5 * $base-line-height;
+}
+
+#new-post, #new-user, .new, .chunk {
+  @include chunk;
+  @include padding-trailer;
+
+  .edit {
+    float:right;
+  }
+}
+
+.reply {
+  @include chunk;
+  @include padding-trailer;
+  @include padding-leader;
+  textarea {
+    height: 2 * $base-line-height;
+  }
+}
+
+#main .replies .post {
+  footer {
+    border: none;
+    padding-top: 0;
+    
+    a {
+      color: #aac2e5;
+    }
+    a:visited {
+      color: #a99de3;
+    }
+  }
+}

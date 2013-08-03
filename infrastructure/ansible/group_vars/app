@@ -1,0 +1,22 @@
+# -*- mode: yaml -*-
+# TODO most of this should be shared with database
+---
+lein_dir: /usr/local/bin/lein
+project_name: gp2
+project_root: /var/projects/gp2
+project_repo: git@github.com:flyingmachine/gratefulplace2.git
+system_packages:
+  - git
+  - openjdk-7-jre-headless
+  - wget
+  - unzip
+  - vim
+  # - nodejs
+  # - libcurl4-openssl-dev
+  # - libmysqlclient-dev
+  # - libreadline6-dev
+  # - libssl-dev
+  # - libxml2-dev
+  # - libxslt1-dev
+  # - zlib1g-dev
+  # - ruby1.9.3

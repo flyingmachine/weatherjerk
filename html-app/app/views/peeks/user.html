@@ -1,0 +1,17 @@
+<div class="peek">
+  <div class="user">
+    <h3 class="username">{{support.peek.data.username}}</h3>
+    <div class="about" ng-bind-html-unsafe="support.peek.data['formatted-about']"></div>
+  </div>
+  <div class="recent-posts">
+    <h4>Recent Posts</h4>
+    <div class="post" ng-repeat="post in support.peek.data.posts">
+      <date data="post['created-at']"></date>
+      <div>
+        <a href="#/topics/{{post.topic.id}}">{{post.topic.title || 'view topic'}}</a>
+      </div>
+      <div class="content" ng-bind-html-unsafe="post.content">
+      </div>
+    </div>
+  </div>
+</div>
