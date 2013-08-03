@@ -21,7 +21,7 @@
                  [com.flyingmachine/webutils "0.1.1"]
                  [flyingmachine/cartographer "0.1.1"]
                  [markdown-clj "0.9.25"]
-                 [clavatar "0.2.1"]
+                 [http-kit "2.1.5"]
                  [org.apache.commons/commons-email "1.2"]
                  [org.clojure/data.json "0.2.2"]]
 
