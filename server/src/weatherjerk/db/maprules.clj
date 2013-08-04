@@ -2,8 +2,7 @@
   (:require [weatherjerk.db.query :as db]
             cemerick.friend.credentials)
   (:use [flyingmachine.cartographer.core]
-        [weatherjerk.utils]
-        [clavatar.core]))
+        [weatherjerk.utils]))
 
 (defn ref-count
   [ref-attr]
@@ -40,8 +39,6 @@
   (attr :about :user/about)
   (attr :receive-watch-notifications :user/receive-watch-notifications)
   (attr :formatted-about #(md-content (:user/about %)))
-  (attr :gravatar #(gravatar (:user/email %) :size 22 :default :identicon))
-  (attr :large-gravatar #(gravatar (:user/email %) :size 48 :default :identicon))
   (has-many :topics
             :rules weatherjerk.db.maprules/ent->topic
             :retriever #(weatherjerk.db.query/all :topic/title [:content/author (:db/id %)]))
