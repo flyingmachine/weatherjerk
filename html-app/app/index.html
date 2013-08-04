@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="fonts/forecast/forecast.css">
     <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css">
   </head>
   <body ng-app="weatherjerkApp">
@@ -26,6 +27,13 @@
     <!-- Add your site or application content here -->
     <div id="main" class="container">
       <h1>weatherjerk</h1>
+      <div ng-controller="LocationsCtrl">
+        <form ng-submit="getLocationData()">
+          <div>Location: <input type="text" ng-model="location"/></div>
+          {{locationData}}
+          <input type="submit" />
+        </form>
+      </div>
       <ng-view>
       </ng-view>
     </div>
@@ -42,6 +50,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/directives/date.js"></script>
     <script src="scripts/directives/error-messages.js"></script>
+    <script src="scripts/controllers/locations.js"></script>
     <!-- endbuild -->
   </body>
 </html>

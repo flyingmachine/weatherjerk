@@ -2,7 +2,7 @@
   (:require compojure.route
             compojure.handler
             [ring.util.response :as resp]
-            [weatherjerk.controllers.posts :as posts]
+            [weatherjerk.controllers.locations :as locations]
             [weatherjerk.controllers.users :as users]
             [weatherjerk.controllers.session :as session]
             [cemerick.friend :as friend])
@@ -33,11 +33,8 @@
                 (GET "/" [] (response-fn "index.html" {:root "html-app"})))
               [resp/file-response resp/resource-response]))
     
-  ;; Posts
-  (authroute POST "/posts" posts/create!)
-  (authroute PUT  "/posts/:id" posts/update!)
-  (authroute POST "/posts/:id" posts/update!)
-  (authroute DELETE "/posts/:id" posts/delete!)
+  ;; Locations
+  (route GET "/locations/:location" locations/show)
 
   ;; Users
   (authroute POST "/users" users/registration-success-response)
