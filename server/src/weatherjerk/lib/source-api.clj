@@ -22,17 +22,18 @@
 
 (defn clean-current-data
   [data]
-  {:conditions (conditions data)
+  {:code (Integer. (get data "weatherCode"))
    :temperature {:c (get data "temp_C")
                  :f (get data "temp_F")}
    :humidity (get data "humidity")
+   :observation-time (get data "observationTime")
    :wind-speed {:km (get data "windspeedMiles")
                 :mi (get data "windspeedKmph")}})
 
 (defn clean-forecast-data
   [days]
   (map (fn [day]
-         {:conditions (conditions day)
+         {:code (Integer. (get day "weatherCode"))
           :temperature {:low {:c (get day "tempMaxC")
                               :f (get day "tempMaxF")}
                         :high {:c (get day "tempMinC")

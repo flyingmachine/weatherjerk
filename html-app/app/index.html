@@ -27,10 +27,14 @@
     <!-- Add your site or application content here -->
     <div id="main" class="container">
       <h1>weatherjerk</h1>
+      <div class="icon-clear"></div>
       <div ng-controller="LocationsCtrl">
         <form ng-submit="getLocationData()">
           <div>Location: <input type="text" ng-model="location"/></div>
-          {{locationData}}
+          <div ng-show="locationData">
+            <forecast-icon data="locationData.current"></forecast-icon>
+            <forecast-icon data="data" ng-repeat="data in locationData.forecast"></forecast-icon>
+          </div>
           <input type="submit" />
         </form>
       </div>
@@ -50,7 +54,9 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/directives/date.js"></script>
     <script src="scripts/directives/error-messages.js"></script>
+    <script src="scripts/directives/forecast-icon.js"></script>
     <script src="scripts/controllers/locations.js"></script>
+    <script src="scripts/services/weather-code.js"></script>
     <!-- endbuild -->
   </body>
 </html>

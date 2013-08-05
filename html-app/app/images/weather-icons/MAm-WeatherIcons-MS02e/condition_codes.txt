@@ -1,0 +1,192 @@
+MIKE AFFORD MEDIA : WEATHER ICONS
+from www.mikeafford.com
+
+CONDITION CODES :
+
+1 sunny 
+2 sunny intervals 
+3 white cloud 
+4 black low cloud 
+5 hazy sun 
+6 mist 
+7 fog 
+8 clear sky (night) 
+9 light rain showers 
+10 heavy rain showers 
+11 light snow showers 
+12 heavy snow showers 
+13 sleet showers 
+14 light hail showers 
+15 heavy hail showers 
+16 thundery showers 
+17 cloudy with light rain 
+18 cloudy with heavy rain 
+19 cloudy with light snow 
+20 cloudy with heavy snow 
+21 cloudy with sleet 
+22 cloudy with light hail 
+23 cloudy with heavy hail 
+24 thunderstorms 
+25 light rain showers (night) 
+26 heavy rain showers (night) 
+27 light snow showers (night) 
+28 heavy snow showers (night) 
+29 sleet showers (night) 
+30 light hail showers (night) 
+31 heavy hail showers (night) 
+32 thundery showers (night) 
+33 cloudy with light rain (night) 
+34 cloudy with heavy rain (night) 
+35 cloudy with light snow (night) 
+36 cloudy with heavy snow (night) 
+37 cloudy with sleet (night) 
+38 cloudy with light hail (night) 
+39 cloudy with heavy hail (night) 
+40 thunderstorms (night) 
+41 partly cloudy (night) 
+42 cloudy (night) 
+43 mostly cloudy 
+44 mostly cloudy (night) 
+45 hot 
+46 cold 
+47 freezing fog 
+48 drizzle 
+49 freezing drizzle 
+50 freezing rain 
+51 extreme rain 
+52 extreme snow 
+53 blowing snow 
+54 blizzard 
+55 smoke 
+56 dust / sand 
+57 thundery snow showers 
+58 thunderstorms with snow 
+59 thunderstorms with hail 
+60 windy 
+61 hot (night) 
+62 cold (night) 
+63 mist (night) 
+64 fog (night) 
+65 freezing fog (night) 
+66 drizzle (night) 
+67 freezing drizzle (night) 
+68 freezing rain (night) 
+69 extreme rain (night) 
+70 extreme snow (night) 
+71 blowing snow (night) 
+72 blizzard (night) 
+73 smoke (night) 
+74 dust / sand (night) 
+75 thundery snow showers (night) 
+76 thunderstorms with snow (night) 
+77 thunderstorms with hail (night) 
+78 windy (night) 
+79 tornado 
+80 tropical storm / hurricane 
+81 heavy drizzle
+82 heavy drizzle (night)
+83 heavy freezing drizzle
+84 heavy freezing drizzle (night)
+85 extreme rain showers
+86 extreme rain showers (night)
+87 heavy sleet showers
+88 heavy_sleet showers (night)
+89 heavy sleet
+90 heavy sleet (night)
+91 volcanic_ash
+999 unknown / unavailable
+
+FILENAMES : (example: PNG format)
+
+wsymbol_0001_sunny.png
+wsymbol_0002_sunny_intervals.png
+wsymbol_0003_white_cloud.png
+wsymbol_0004_black_low_cloud.png
+wsymbol_0005_hazy_sun.png
+wsymbol_0006_mist.png
+wsymbol_0007_fog.png
+wsymbol_0008_clear_sky_night.png
+wsymbol_0009_light_rain_showers.png
+wsymbol_0010_heavy_rain_showers.png
+wsymbol_0011_light_snow_showers.png
+wsymbol_0012_heavy_snow_showers.png
+wsymbol_0013_sleet_showers.png
+wsymbol_0014_light_hail_showers.png
+wsymbol_0015_heavy_hail_showers.png
+wsymbol_0016_thundery_showers.png
+wsymbol_0017_cloudy_with_light_rain.png
+wsymbol_0018_cloudy_with_heavy_rain.png
+wsymbol_0019_cloudy_with_light_snow.png
+wsymbol_0020_cloudy_with_heavy_snow.png
+wsymbol_0021_cloudy_with_sleet.png
+wsymbol_0022_cloudy_with_light_hail.png
+wsymbol_0023_cloudy_with_heavy_hail.png
+wsymbol_0024_thunderstorms.png
+wsymbol_0025_light_rain_showers_night.png
+wsymbol_0026_heavy_rain_showers_night.png
+wsymbol_0027_light_snow_showers_night.png
+wsymbol_0028_heavy_snow_showers_night.png
+wsymbol_0029_sleet_showers_night.png
+wsymbol_0030_light_hail_showers_night.png
+wsymbol_0031_heavy_hail_showers_night.png
+wsymbol_0032_thundery_showers_night.png
+wsymbol_0033_cloudy_with_light_rain_night.png
+wsymbol_0034_cloudy_with_heavy_rain_night.png
+wsymbol_0035_cloudy_with_light_snow_night.png
+wsymbol_0036_cloudy_with_heavy_snow_night.png
+wsymbol_0037_cloudy_with_sleet_night.png
+wsymbol_0038_cloudy_with_light_hail_night.png
+wsymbol_0039_cloudy_with_heavy_hail_night.png
+wsymbol_0040_thunderstorms_night.png
+wsymbol_0041_partly_cloudy_night.png
+wsymbol_0042_cloudy_night.png
+wsymbol_0043_mostly_cloudy.png
+wsymbol_0044_mostly_cloudy_night.png
+wsymbol_0045_hot.png
+wsymbol_0046_cold.png
+wsymbol_0047_freezing_fog.png
+wsymbol_0048_drizzle.png
+wsymbol_0049_freezing_drizzle.png
+wsymbol_0050_freezing_rain.png
+wsymbol_0051_extreme_rain.png
+wsymbol_0052_extreme_snow.png
+wsymbol_0053_blowing_snow.png
+wsymbol_0054_blizzard.png
+wsymbol_0055_smoke.png
+wsymbol_0056_dust_sand.png
+wsymbol_0057_thundery_snow_showers.png
+wsymbol_0058_thunderstorms_with_snow.png
+wsymbol_0059_thunderstorms_with_hail.png
+wsymbol_0060_windy.png
+wsymbol_0061_hot_night.png
+wsymbol_0062_cold_night.png
+wsymbol_0063_mist_night.png
+wsymbol_0064_fog_night.png
+wsymbol_0065_freezing_fog_night.png
+wsymbol_0066_drizzle_night.png
+wsymbol_0067_freezing_drizzle_night.png
+wsymbol_0068_freezing_rain_night.png
+wsymbol_0069_extreme_rain_night.png
+wsymbol_0070_extreme_snow_night.png
+wsymbol_0071_blowing_snow_night.png
+wsymbol_0072_blizzard_night.png
+wsymbol_0073_smoke_night.png
+wsymbol_0074_dust_sand_night.png
+wsymbol_0075_thundery_snow_showers_night.png
+wsymbol_0076_thunderstorms_with_snow_night.png
+wsymbol_0077_thunderstorms_with_hail_night.png
+wsymbol_0078_windy_night.png
+wsymbol_0079_tornado.png
+wsymbol_0080_tropical_storm_hurricane.png
+wsymbol_0081_heavy_drizzle.png
+wsymbol_0082_heavy_drizzle_night.png
+wsymbol_0083_heavy_freezing_drizzle.png
+wsymbol_0084_heavy_freezing_drizzle_night.png
+wsymbol_0085_extreme_rain_showers.png
+wsymbol_0086_extreme_rain_showers_night.png
+wsymbol_0087_heavy_sleet_showers.png
+wsymbol_0088_heavy_sleet_showers_night.png
+wsymbol_0089_heavy_sleet.png
+wsymbol_0090_heavy_sleet_night.png
+wsymbol_0091_volcanic_ash.png
+wsymbol_0999_unknown.png.png

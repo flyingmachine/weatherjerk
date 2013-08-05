@@ -19,11 +19,11 @@
  362 {:desc "Light sleet showers"
       :keys [:sleet]}
  359 {:desc "Torrential rain shower"
-      :keys [:rain]}
+      :keys [:rainy]}
  356 {:desc "Moderate or heavy rain shower"
-      :keys [:rain]}
+      :keys [:rainy]}
  353 {:desc "Light rain shower"
-      :keys [:rain]}
+      :keys [:rainy]}
  350 {:desc "Ice pellets"
       :keys [:hail]}
  338 {:desc "Heavy snow"
@@ -47,17 +47,17 @@
  311 {:desc "Light freezing rain"
       :keys [:sleet]}
  308 {:desc "Heavy rain"
-      :keys [:rain]}
+      :keys [:rainy]}
  305 {:desc "Heavy rain at times"
-      :keys [:rain]}
+      :keys [:rainy]}
  302 {:desc "Moderate rain"
-      :keys [:rain]}
+      :keys [:rainy]}
  299 {:desc "Moderate rain at times"
-      :keys [:rain]}
+      :keys [:rainy]}
  296 {:desc "Light rain"
-      :keys [:rain]}
+      :keys [:rainy]}
  293 {:desc "Patchy light rain"
-      :keys [:rain]}
+      :keys [:rainy]}
  284 {:desc "Heavy freezing drizzle"
       :keys [:drizzle]}
  281 {:desc "Freezing drizzle"
@@ -83,7 +83,7 @@
  179 {:desc "Patchy snow nearby"
       :keys [:snow]}
  176 {:desc "Patchy rain nearby"
-      :keys [:rain]}
+      :keys [:rainy]}
  143 {:desc "Mist"
       :keys [:misty]}
  122 {:desc "Overcast"
@@ -92,5 +92,5 @@
       :keys [:cloudy]}
  116 {:desc "Partly Cloudy"
       :keys [:partly-cloudy]}
- 113 {:desc "Clear/Sunny"}
- :keys [:clear]}
+ 113 {:desc "Clear/Sunny"
+      :keys [:clear]}}

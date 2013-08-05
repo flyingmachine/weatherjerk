@@ -4,4 +4,6 @@
 
 (defresource show [params]
   :available-media-types ["application/json"]
-  :handle-ok (api/location-data (:location params)))
+  :handle-ok (-> (:location params)
+                 api/location-data
+                 api/clean))
