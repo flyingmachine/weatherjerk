@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="fonts/forecast/forecast.css">
     <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css">
   </head>
   <body ng-app="weatherjerkApp">
@@ -26,20 +25,26 @@
 
     <!-- Add your site or application content here -->
     <div id="main" class="container">
-      <h1>weatherjerk</h1>
-      <div class="icon-clear"></div>
-      <div ng-controller="LocationsCtrl">
+      <div ng-controller="LocationsCtrl" class="location">
+        <h2>Your Awesome Location</h2>
         <form ng-submit="getLocationData()">
-          <div>Location: <input type="text" ng-model="location"/></div>
-          <div ng-show="locationData">
-            <forecast-icon data="locationData.current"></forecast-icon>
-            <forecast-icon data="data" ng-repeat="data in locationData.forecast"></forecast-icon>
+          <div>
+            <input type="text" ng-model="location"/>
+            <input type="submit" />
           </div>
-          <input type="submit" />
+          <forecast data="locationData"></forecast>
         </form>
       </div>
-      <ng-view>
-      </ng-view>
+      <div ng-controller="LocationsCtrl" class="location">
+        <h2>Some Poor Slob's Location</h2>
+        <form ng-submit="getLocationData()">
+          <div>
+            <input type="text" ng-model="location"/>
+            <input type="submit" />
+          </div>
+          <forecast data="locationData"></forecast>
+        </form>
+      </div>
     </div>
 
     <script src="components/angular/angular.js"></script>
@@ -54,6 +59,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/directives/date.js"></script>
     <script src="scripts/directives/error-messages.js"></script>
+    <script src="scripts/directives/forecast.js"></script>
     <script src="scripts/directives/forecast-icon.js"></script>
     <script src="scripts/controllers/locations.js"></script>
     <script src="scripts/services/weather-code.js"></script>
