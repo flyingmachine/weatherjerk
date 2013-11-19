@@ -5,21 +5,10 @@
             [weatherjerk.controllers.locations :as locations]
             [weatherjerk.controllers.users :as users]
             [weatherjerk.controllers.session :as session]
-            [cemerick.friend :as friend])
+            [cemerick.friend :as friend]
+            [flyingmachine.webutils.routes :refer :all])
   (:use [compojure.core :as compojure.core :only (GET PUT POST DELETE ANY defroutes)]
         weatherjerk.config))
-
-
-(defmacro route
-  [method path handler]
-  `(~method ~path {params# :params}
-            (~handler params#)))
-
-(defmacro authroute
-  [method path handler]
-  (let [params (quote params)]
-    `(~method ~path {:keys [~params] :as req#}
-              (~handler ~params (friend/current-authentication req#)))))
 
 (defroutes routes
   ;; Serve up angular app
@@ -35,20 +24,4 @@
     
   ;; Locations
   (route GET "/locations/:location" locations/show)
-
-  ;; Users
-  (authroute POST "/users" users/registration-success-response)
-  (route GET "/users/:id" users/show)
-  (authroute POST "/users/:id" users/update!)
-  (authroute POST "/users/:id/password" users/change-password!)
-
-  ;; auth
-  (route POST "/login" session/create!)
-  (friend/logout
-   (ANY "/logout" []
-        (ring.util.response/redirect "/")))
-
-  (ANY "/debug" {:keys [x] :as r}
-       (str x))
-  
   (compojure.route/not-found "Sorry, there's nothing here."))
