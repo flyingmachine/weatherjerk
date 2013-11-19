@@ -1,6 +1,5 @@
 (ns weatherjerk.server
   (:gen-class)
-  (:require [weatherjerk.db.manage :as db])
   (:use clojure.stacktrace
         [ring.adapter.jetty :only (run-jetty)]
         ring.middleware.params
@@ -8,9 +7,7 @@
         ring.middleware.nested-params
         ring.middleware.session
         ring.middleware.format
-        [weatherjerk.middleware.routes :only (routes)]
-        [weatherjerk.middleware.auth :only (auth)]
-        [weatherjerk.middleware.db-session-store :only (db-session-store)]))
+        [weatherjerk.middleware.routes :only (routes)]))
 
 (defn wrap-exception [f]
   (fn [request]
@@ -29,7 +26,6 @@
 (defn wrap
   [to-wrap]
   (-> to-wrap
-      (wrap-session {:cookie-name "weatherjerk-session" :store (db-session-store {})})
       (wrap-restful-format :formats [:json-kw])
       wrap-exception
       wrap-keyword-params
@@ -39,7 +35,6 @@
 ; The ring app
 (def app
   (-> routes
-      auth
       ;; debug
       wrap))
 

@@ -2,10 +2,7 @@
   (:require compojure.route
             compojure.handler
             [ring.util.response :as resp]
-            [weatherjerk.controllers.locations :as locations]
-            [weatherjerk.controllers.users :as users]
-            [weatherjerk.controllers.session :as session]
-            [cemerick.friend :as friend])
+            [weatherjerk.controllers.forecasts :as forecasts])
   (:use [compojure.core :as compojure.core :only (GET PUT POST DELETE ANY defroutes)]
         weatherjerk.config))
 
@@ -14,12 +11,6 @@
   [method path handler]
   `(~method ~path {params# :params}
             (~handler params#)))
-
-(defmacro authroute
-  [method path handler]
-  (let [params (quote params)]
-    `(~method ~path {:keys [~params] :as req#}
-              (~handler ~params (friend/current-authentication req#)))))
 
 (defroutes routes
   ;; Serve up angular app
