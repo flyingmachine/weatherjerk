@@ -17,7 +17,7 @@
                  [korma "0.3.0-RC5"]
                  [lobos "1.0.0-beta1"]
                  [postgresql "9.1-901.jdbc4"]
-                 [com.flyingmachine/webutils "0.1.1"]
+                 [com.flyingmachine/webutils "0.1.5"]
                  [flyingmachine/cartographer "0.1.1"]
                  [markdown-clj "0.9.25"]
                  [http-kit "2.1.5"]

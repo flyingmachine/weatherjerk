@@ -2,15 +2,10 @@
   (:require compojure.route
             compojure.handler
             [ring.util.response :as resp]
-            [weatherjerk.controllers.forecasts :as forecasts])
+            [weatherjerk.controllers.forecasts :as forecasts]
+            [flyingmachine.webutils.routes :refer :all])
   (:use [compojure.core :as compojure.core :only (GET PUT POST DELETE ANY defroutes)]
         weatherjerk.config))
-
-
-(defmacro route
-  [method path handler]
-  `(~method ~path {params# :params}
-            (~handler params#)))
 
 (defroutes routes
   ;; Serve up angular app
@@ -24,7 +19,6 @@
                 (GET "/" [] (response-fn "index.html" {:root "html-app"})))
               [resp/file-response resp/resource-response]))
     
-  ;; Locations
-  (route GET "/forecasts/:location" forecasts/show)
-
+  ;; Forecasts
+  (route GET "/forecasts/:forecast" forecasts/show)
   (compojure.route/not-found "Sorry, there's nothing here."))
