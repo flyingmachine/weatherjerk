@@ -34,9 +34,9 @@
   [days]
   (map (fn [day]
          {:code (Integer. (get day "weatherCode"))
-          :temperature {:low {:c (get day "tempMaxC")
+          :temperature {:high {:c (get day "tempMaxC")
                               :f (get day "tempMaxF")}
-                        :high {:c (get day "tempMinC")
+                        :low {:c (get day "tempMinC")
                                :f (get day "tempMinF")}}
           :wind-speed {:km (get day "windspeedMiles")
                        :mi (get day "windspeedKmph")}

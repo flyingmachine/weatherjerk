@@ -22,6 +22,10 @@ angular.module('weatherjerkApp').directive 'forecast', ->
     </div>
     <div class="forecast" ng-repeat="forecast in data.forecast">
       <forecast-icon data="forecast"></forecast-icon>
+      <div class="temperature">
+        <div class="temp-high">{{forecast.temperature.high.f}}</div>
+        <div class="temp-low">{{forecast.temperature.low.f}}</div>
+      </div>
     </div>
   </div>
   """
