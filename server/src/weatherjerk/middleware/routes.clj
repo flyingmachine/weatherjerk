@@ -20,5 +20,5 @@
               [resp/file-response resp/resource-response]))
     
   ;; Forecasts
-  (route GET "/forecasts/:forecast" forecasts/show)
+  (route GET "/forecasts/:location" forecasts/show)
   (compojure.route/not-found "Sorry, there's nothing here."))

@@ -32,5 +32,5 @@
                                     :user "daniel"
                                     :password ""
                                     :host "localhost"}}}}}
-  
-  :main weatherjerk.app)
+
+  :main weatherjerk.server)
