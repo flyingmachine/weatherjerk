@@ -1,4 +1,4 @@
-(ns weatherjerk.controllers.locations
+(ns weatherjerk.controllers.forecasts
   (:require [weatherjerk.lib.source-api :as api]
             [liberator.core :refer [defresource]]))
 

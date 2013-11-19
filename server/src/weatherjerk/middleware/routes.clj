@@ -34,21 +34,6 @@
               [resp/file-response resp/resource-response]))
     
   ;; Locations
-  (route GET "/locations/:location" locations/show)
+  (route GET "/forecasts/:location" forecasts/show)
 
-  ;; Users
-  (authroute POST "/users" users/registration-success-response)
-  (route GET "/users/:id" users/show)
-  (authroute POST "/users/:id" users/update!)
-  (authroute POST "/users/:id/password" users/change-password!)
-
-  ;; auth
-  (route POST "/login" session/create!)
-  (friend/logout
-   (ANY "/logout" []
-        (ring.util.response/redirect "/")))
-
-  (ANY "/debug" {:keys [x] :as r}
-       (str x))
-  
   (compojure.route/not-found "Sorry, there's nothing here."))
