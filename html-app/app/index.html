@@ -31,11 +31,19 @@
     </div>
     <div id="main" class="container" ng-controller="NewGloatsCtrl">
       <div class="unit">
-        <h2>Celsius or Fahrenheight?</h2>
-        {{unit}}
         <ul>
-          <li><label><input type="radio" ng-model="unit" value="f"> Fahrenheit</label></li>
-          <li><label><input type="radio" ng-model="unit" value="c"> Celsius</label></li>
+          <li ng-class="{selected: settings.unit=='f'}">
+            <label>
+              <input type="radio" ng-model="settings.unit" value="f">
+              Fahrenheit
+          </label>
+          </li>
+          <li ng-class="{selected: settings.unit=='c'}">
+            <label>
+              <input type="radio" ng-model="settings.unit" value="c">
+              Celsius
+            </label>
+          </li>
         </ul>
       </div>
       <div ng-controller="ForecastsCtrl" class="forecast">

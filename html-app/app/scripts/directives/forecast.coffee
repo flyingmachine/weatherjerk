@@ -3,6 +3,7 @@ angular.module('weatherjerkApp').directive 'forecast', ->
   scope:
     data: '='
   controller: ['$scope', ($scope)->
+    $scope.settings = $scope.$parent.settings
     # $scope.current = $scope.data.current if $scope.data
   ]
   template: """
@@ -13,7 +14,7 @@ angular.module('weatherjerkApp').directive 'forecast', ->
       <table>
         <tr>
           <td>Temperature</td>
-          <td>{{data.current.temperature.f}}&deg;F / {{data.current.temperature.c}}&deg;C</td>
+          <td>{{data.current.temperature[settings.unit]}}&deg;{{settings.unit}}</td>
         </tr>
         <tr>
           <td>Humidity</td>
@@ -28,11 +29,11 @@ angular.module('weatherjerkApp').directive 'forecast', ->
       <table class="temperature">
         <tr class="temp-high">
           <td>High:</td>
-          <td>{{forecast.temperature.high.f}}</td>
+          <td>{{forecast.temperature.high[settings.unit]}}&deg;{{settings.unit}}</td>
         </tr>
         <tr class="temp-low">
           <td>Low:</td>
-          <td>{{forecast.temperature.low.f}}</td>
+          <td>{{forecast.temperature.low[settings.unit]}}&deg;{{settings.unit}}</td>
         </tr>
       </table>
     </div>

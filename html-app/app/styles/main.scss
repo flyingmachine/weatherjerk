@@ -358,4 +358,33 @@ td:first-child {
   }
 }
 
+.unit {
+  @include span-columns(8 omega);
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  label {
+    padding: .75em $gutter-width;
+    display: block;
+  }
+  
+  li {
+    float: left;
+    background: rgba(255, 255, 255, 0.4);
+    @include border-radius(3px);
+    margin-right: .5em;
+
+    &.selected {
+      background: white;
+    }
+  }
+  
+  input {
+    display: none;
+  }
+}
+
 @import "layout";
