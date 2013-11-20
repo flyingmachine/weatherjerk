@@ -6,9 +6,10 @@ angular.module('weatherjerkApp').directive 'forecast', ->
     # $scope.current = $scope.data.current if $scope.data
   ]
   template: """
-  <div ng-show="data" class="comparison">
+  <div ng-show="data" class="forecast-data">
     <div class="current">
-      <forecast-icon data="data.current" size="256"></forecast-icon>
+      <h3>Right Now</h3>
+      <forecast-icon data="data.current" size="128"></forecast-icon>
       <table>
         <tr>
           <td>Temperature</td>
@@ -20,12 +21,20 @@ angular.module('weatherjerkApp').directive 'forecast', ->
         </tr>
       </table>
     </div>
-    <div class="forecast" ng-repeat="forecast in data.forecast">
+    <h3>5-Day Forecast</h3>
+    <div class="forecast-day" ng-repeat="forecast in data.forecast">
+      <date data="forecast.date"></date>
       <forecast-icon data="forecast"></forecast-icon>
-      <div class="temperature">
-        <div class="temp-high">{{forecast.temperature.high.f}}</div>
-        <div class="temp-low">{{forecast.temperature.low.f}}</div>
-      </div>
+      <table class="temperature">
+        <tr class="temp-high">
+          <td>High:</td>
+          <td>{{forecast.temperature.high.f}}</td>
+        </tr>
+        <tr class="temp-low">
+          <td>Low:</td>
+          <td>{{forecast.temperature.low.f}}</td>
+        </tr>
+      </table>
     </div>
   </div>
   """

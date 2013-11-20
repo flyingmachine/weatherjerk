@@ -1,5 +1,6 @@
 'use strict'
 angular.module('weatherjerkApp').controller 'ForecastsCtrl', ($scope, $http) ->
+
   $scope.classes = (data)->
     _.map data.conditions.keys, (condition)->
       "forecast-#{condition}"

@@ -8,8 +8,17 @@
 }
 
 .forecast {
-  @include span-columns(6);
+  @include span-columns(4);
   &:last-child {
-    @include span-columns(6 omega);
+    @include span-columns(4 omega);
+  }
+}
+
+.unit {
+  @include trailer;
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 }

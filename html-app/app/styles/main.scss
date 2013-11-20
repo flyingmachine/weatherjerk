@@ -16,7 +16,7 @@ $column-width   : 4em;            // each column is 4em wide
 $gutter-width   : 1em;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters
 $base-line-height: 24px;
-$total-columns  : 12;
+$total-columns  : 8;
 
 @import "base";
 @import "formalize";
@@ -24,18 +24,26 @@ $total-columns  : 12;
 // To customize vertical ryhthm, see http://compass-style.org/reference/compass/typography/vertical_rhythm/
 @include establish-baseline;
 
+#masthead {
+  background: #fdfded;
+  @include padding-leader;
+  @include padding-trailer;
+  .container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 body {
   color: #444;
+  background: #eaf8fa;
   @include serif-family;
 }
 
 h2 {
   @include sans-family;
-  @include adjust-font-size-to(30px, 1);
-  @include trailer(1, 30px);
-  @include padding-trailer(.5, 30px);
-  @include leader(.5, 30px);
-  border-bottom: 1px solid #666;
+  @include adjust-font-size-to(24px, 1);
+  @include trailer(1, 24px);
 }
 
 h2:first-child, h2.first {
@@ -45,7 +53,6 @@ h2:first-child, h2.first {
 h3 {
   @include sans-family;
   @include adjust-font-size-to(21px, 1);
-  @include box-sizing(border-box);
   @include leader(1, 21px);
   @include trailer(.5, 21px);
 }
@@ -53,7 +60,6 @@ h3 {
 h4 {
   @include sans-family;
   @include adjust-font-size-to(17px, 1);
-  @include box-sizing(border-box);
   @include leader(1, 17px);
   @include trailer(.5, 17px);
 }
@@ -113,34 +119,6 @@ sup {
   @include clearfix;
 }
 
-.masthead {
-  @include container;
-  @include leader(1);
-
-  .content {
-    @include span-columns(9);
-  }
-
-  .logo {
-    @include span-columns(5, 9);
-  }
-  
-  blockquote {
-    @include span-columns(4 omega, 9);
-    background: none;
-    padding: 0;
-    margin:0;
-    color:#555;
-    cite {
-      display:block;
-      font-style:italic;
-    }
-  }
-
-  .intro a {
-    display:none;
-  }
-}
 
 .pagination {
   a, span {
@@ -340,6 +318,43 @@ input.ng-pristine {
   @include chunk;
   p:last-child {
     margin-bottom: 0;
+  }
+}
+
+td:first-child {
+  padding-right: .5em;
+}
+
+.forecast-data {
+  @include leader;
+  @include padding-leader;
+  @include border-radius(3px);
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  background: rgba(255, 255, 255, 0.8);
+
+  .current {
+    @include trailer;
+    @include padding-trailer;
+    border-bottom: 2px solid #eaf8fa;
+    h3 {
+    margin-top: 0;
+    }
+  }
+
+  .forecast-day {
+    @include clearfix;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .date {
+      font-style: italic;
+    }
+    .forecast-icon {
+      float: left;
+      margin-right: .5em;
+    }
   }
 }
 

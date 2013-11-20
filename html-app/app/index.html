@@ -24,13 +24,25 @@
         <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div id="main" class="container">
+    <div id="masthead">
+      <div class="container">
+        Weather Jerk
+      </div>
+    </div>
+    <div id="main" class="container" ng-controller="NewGloatsCtrl">
+      <div class="unit">
+        <h2>Celsius or Fahrenheight?</h2>
+        {{unit}}
+        <ul>
+          <li><label><input type="radio" ng-model="unit" value="f"> Fahrenheit</label></li>
+          <li><label><input type="radio" ng-model="unit" value="c"> Celsius</label></li>
+        </ul>
+      </div>
       <div ng-controller="ForecastsCtrl" class="forecast">
         <h2>Your Awesome Forecast</h2>
         <form ng-submit="getForecastData()">
           <div>
-            <input type="text" ng-model="forecast" placeholder="Your
-            zip or city"/>
+            <input type="text" ng-model="forecast" placeholder="Your zip or city"/>
             <input type="submit" />
           </div>
           <forecast data="forecastData"></forecast>
@@ -40,8 +52,7 @@
         <h2>Some Poor Slob's Forecast</h2>
         <form ng-submit="getForecastData()">
           <div>
-            <input type="text" ng-model="forecast" placeholder="Some
-            poor slob's zip or city" />
+            <input type="text" ng-model="forecast" placeholder="Some poor slob's zip or city" />
             <input type="submit" />
           </div>
           <forecast data="forecastData"></forecast>
@@ -64,6 +75,7 @@
     <script src="scripts/directives/forecast.js"></script>
     <script src="scripts/directives/forecast-icon.js"></script>
     <script src="scripts/controllers/forecasts.js"></script>
+    <script src="scripts/controllers/gloats/new.js"></script>
     <script src="scripts/services/weather-code.js"></script>
     <!-- endbuild -->
   </body>

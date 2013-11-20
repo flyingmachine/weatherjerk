@@ -3,6 +3,7 @@
             [weatherjerk.db.entities :as e]
             [weatherjerk.db.crud :as crud]
             [weatherjerk.lib.source-api :as api]
+            [clojure.contrib.math :as math]
             [flyingmachine.webutils.utils :refer :all]
             [clj-time.core :as t]
             [clj-time.coerce :refer (to-sql-date from-string from-sql-date)]
@@ -40,7 +41,7 @@
 
 (defn c->f
   [c]
-  (+ 32 (* c 1.8)))
+  (math/round (+ 32 (* c 1.8))))
 
 (defn out-forecasts
   [x num]

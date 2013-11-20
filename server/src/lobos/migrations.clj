@@ -8,7 +8,8 @@
   (up [] (create
           (tbl :gloats
                (integer :gloater_forecast_id)
-               (integer :poor_slob_forecast_id))))
+               (integer :poor_slob_forecast_id)
+               (text :message))))
   (down [] (drop (table :gloats))))
 
 (defmigration add-forecasts-table
