@@ -32,14 +32,14 @@
     <div id="main" class="container" ng-controller="NewGloatsCtrl">
       <div class="unit">
         <ul>
-          <li ng-class="{selected: settings.unit=='f'}">
-            <label>
+          <li>
+            <label ng-class="{selected: settings.unit=='f'}">
               <input type="radio" ng-model="settings.unit" value="f">
               Fahrenheit
           </label>
           </li>
-          <li ng-class="{selected: settings.unit=='c'}">
-            <label>
+          <li>
+            <label ng-class="{selected: settings.unit=='c'}">
               <input type="radio" ng-model="settings.unit" value="c">
               Celsius
             </label>

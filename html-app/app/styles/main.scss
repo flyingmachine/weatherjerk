@@ -367,19 +367,20 @@ td:first-child {
   }
 
   label {
+    @include border-radius(3px);
     padding: .75em $gutter-width;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
     display: block;
+    
+    &:hover, &.selected {
+      background: white;
+    }
   }
   
   li {
     float: left;
-    background: rgba(255, 255, 255, 0.4);
-    @include border-radius(3px);
     margin-right: .5em;
-
-    &.selected {
-      background: white;
-    }
   }
   
   input {
