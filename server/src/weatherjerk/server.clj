@@ -1,5 +1,6 @@
 (ns weatherjerk.server
   (:gen-class)
+  (:require weatherjerk.db.connection)
   (:use clojure.stacktrace
         [ring.adapter.jetty :only (run-jetty)]
         ring.middleware.params

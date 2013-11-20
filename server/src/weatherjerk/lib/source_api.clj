@@ -13,7 +13,7 @@
   {:timeout 200
    :query-params (merge {:key (config :weather-api-key)
                          :format "json"
-                         :num_of_days 3}
+                         :num_of_days 5}
                         params)})
 
 (defn conditions

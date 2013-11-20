@@ -17,11 +17,12 @@
                  [korma "0.3.0-RC5"]
                  [lobos "1.0.0-beta1"]
                  [postgresql "9.1-901.jdbc4"]
-                 [com.flyingmachine/webutils "0.1.5"]
+                 [com.flyingmachine/webutils "0.1.6"]
                  [flyingmachine/cartographer "0.1.1"]
                  [markdown-clj "0.9.25"]
                  [http-kit "2.1.5"]
-                 [org.clojure/data.json "0.2.2"]]
+                 [org.clojure/data.json "0.2.2"]
+                 [clj-time "0.6.0"]]
 
   :plugins [[lein-environ "0.4.0"]]
 
@@ -31,6 +32,9 @@
                    :env {:app {:db {:db "weatherjerk-development"
                                     :user "daniel"
                                     :password ""
-                                    :host "localhost"}}}}}
+                                    :host "localhost"}
+                               :html-paths ["html-app"
+                                            "../html-app/app"
+                                            "../html-app/.tmp"]}}}}
 
   :main weatherjerk.server)
