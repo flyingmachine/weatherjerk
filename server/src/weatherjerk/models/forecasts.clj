@@ -55,7 +55,8 @@
 (defn out
   [x]
   (let [temp-c (:current_temp_c x)]
-    {:location (:location x)
+    {:id (:id x)
+     :location (:location x)
      :query (:query x)
      :current {:code (:current_weather_code x)
                :temperature {:c temp-c
@@ -78,5 +79,4 @@
   (if-let [cache (cached query)]
     (out cache)
     (let [data (api/location query)]
-      (future (crud/create! e/forecasts (in data)))
-      data)))
+      (out (crud/create! e/forecasts (in data))))))
