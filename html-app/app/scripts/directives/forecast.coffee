@@ -8,9 +8,9 @@ angular.module('weatherjerkApp').directive 'forecast', ->
     $scope.sign = (v)->
       if $scope.data
         if v > 0
-          "+#{v}"
+          "+#{v.toFixed(0)}"
         else
-          v
+          v.toFixed(0)
     
     $scope.ct = (f, hl)->
       if $scope.data && f.comparison
