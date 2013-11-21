@@ -18,8 +18,8 @@
                (varchar :location 255)
                
                (varchar :current_weather_code 20)
-               (integer :current_temp_c)
-               (integer :current_humidity)
+               (float :current_temp_c)
+               (float :current_humidity)
                
                (varchar :weather_code_1 20)
                (integer :temp_max_c_1)

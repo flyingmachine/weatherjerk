@@ -21,6 +21,7 @@
                  [flyingmachine/cartographer "0.1.1"]
                  [markdown-clj "0.9.25"]
                  [http-kit "2.1.5"]
+                 [ororo "0.1.0-alpha1"]
                  [org.clojure/data.json "0.2.2"]
                  [clj-time "0.6.0"]]
 
