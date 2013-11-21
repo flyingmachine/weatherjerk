@@ -2,7 +2,7 @@
   (:require [korma.core :refer :all]
             [weatherjerk.db.entities :as e]
             [weatherjerk.db.crud :as crud]
-            [weatherjerk.lib.source-api :as api]
+            [weatherjerk.lib.wunderground-api :as api]
             [clojure.contrib.math :as math]
             [flyingmachine.webutils.utils :refer :all]
             [clj-time.core :as t]
@@ -64,7 +64,7 @@
                :temperature {:c temp-c
                              :f (c->f temp-c)}
                :humidity (:current_humidity x)}
-     :forecast (out-forecasts x 5)}))
+     :forecast (out-forecasts x 4)}))
 
 (defn in
   [location {:keys [current forecast]}]
@@ -73,14 +73,12 @@
     :current_humidity (str->int (:humidity current))
     :current_weather_code (:code current)
     :current_temp_c (str->int (get-in current [:temperature :c]))}
-   (in-forecasts forecast 5)))
+   (in-forecasts forecast 4)))
 
 (defn forecast
   [location]
   (if-let [cache (cached location)]
     (out cache)
-    (let [data (-> location
-                   api/location-data
-                   api/clean)]
+    (let [data (api/location location)]
       (future (crud/create! e/forecasts (in location data)))
       data)))

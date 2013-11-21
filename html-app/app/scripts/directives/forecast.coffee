@@ -22,7 +22,7 @@ angular.module('weatherjerkApp').directive 'forecast', ->
         </tr>
       </table>
     </div>
-    <h3>5-Day Forecast</h3>
+    <h3>4-Day Forecast</h3>
     <div class="forecast-day" ng-repeat="forecast in data.forecast">
       <date data="forecast.date"></date>
       <forecast-icon data="forecast"></forecast-icon>

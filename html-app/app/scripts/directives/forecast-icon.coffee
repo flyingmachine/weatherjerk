@@ -8,7 +8,7 @@ angular.module('weatherjerkApp').directive 'forecastIcon', ->
       $scope.size || '64'
     $scope.iconPath = ->
       if $scope.data
-        "/images/weather-icons/PNGs_#{iconSize()}x#{iconSize()}/#{WeatherCode[$scope.data.code].dayIcon}.png"
+        "/images/weather-icons/PNGs_#{iconSize()}x#{iconSize()}/#{WeatherCode[$scope.data.code]}.png"
   ]
   template: """
   <div class="forecast-icon">
