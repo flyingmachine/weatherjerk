@@ -118,8 +118,12 @@ sup {
   display: none;
 }
 
-td:first-child {
+td {
   padding-right: .5em;
+}
+
+.comparison {
+  color: #49a5f2;
 }
 
 .forecast-data {
@@ -183,6 +187,10 @@ td:first-child {
   input {
     display: none;
   }
+}
+
+.activity {
+  @include leader;
 }
 
 @import "layout";
