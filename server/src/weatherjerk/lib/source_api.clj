@@ -45,15 +45,17 @@
 
 (defn clean
   [data]
-  {:current (clean-current-data (first (get data "current_condition")))
+  {:location (:location data)
+   :current (clean-current-data (first (get data "current_condition")))
    :forecast (clean-forecast-data (get data "weather"))})
 
 (defn location-data
   [location]
   (-> @(http/get url (options {:q location}))
-                 :body
-                 json/read-str
-                 (get "data")))
+      :body
+      json/read-str
+      (get "data")
+      (assoc :location location)))
 
 (defn qualities
   [forecast]
