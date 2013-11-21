@@ -59,7 +59,8 @@
 (defn out
   [x]
   (let [temp-c (:current_temp_c x)]
-    {:current {:code (:current_weather_code x)
+    {:location (:location x)
+     :current {:code (:current_weather_code x)
                :temperature {:c temp-c
                              :f (c->f temp-c)}
                :humidity (:current_humidity x)}
