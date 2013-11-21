@@ -16,6 +16,7 @@
   (up [] (create
           (tbl :forecasts
                (varchar :location 255)
+               (varchar :query 255)
                
                (varchar :current_weather_code 20)
                (float :current_temp_c)

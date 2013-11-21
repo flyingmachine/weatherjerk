@@ -6,7 +6,7 @@ angular.module('weatherjerkApp').directive 'forecast', ->
     $scope.settings = $scope.$parent.settings
 
     $scope.sign = (v)->
-      if $scope.data
+      if $scope.data && v
         if v > 0
           "+#{v.toFixed(0)}"
         else
@@ -27,6 +27,7 @@ angular.module('weatherjerkApp').directive 'forecast', ->
   template: """
   <div ng-show="data" class="forecast-data">
     <div class="current">
+      <h2 class='location'>{{data.location}}</h2>
       <h3>Right Now</h3>
       <forecast-icon data="data.current" size="128"></forecast-icon>
       <table>

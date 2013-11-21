@@ -50,6 +50,13 @@ h2:first-child, h2.first {
   margin-top:0;
 }
 
+h2.location {
+  @include serif-family;
+  @include adjust-font-size-to(28px, 1);
+  @include trailer(1, 28px);
+  color: #4195db;
+}
+
 h3 {
   @include sans-family;
   @include adjust-font-size-to(21px, 1);

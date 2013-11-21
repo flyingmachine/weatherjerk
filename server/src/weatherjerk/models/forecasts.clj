@@ -10,17 +10,13 @@
             [clj-time.format :as format]))
 
 (defn cached
-  [location]
+  [query]
   (first
    (-> (select* e/forecasts)
-       (where {:location (str location)})
+       (where {:query (str query)})
        (where "age(created_on) < interval '1 hour'")
        (select))))
 
-
-(defn kstr
-  [& args]
-  (keyword (apply str args)))
 
 (defn date->str
   [date]
@@ -60,6 +56,7 @@
   [x]
   (let [temp-c (:current_temp_c x)]
     {:location (:location x)
+     :query (:query x)
      :current {:code (:current_weather_code x)
                :temperature {:c temp-c
                              :f (c->f temp-c)}
@@ -67,18 +64,19 @@
      :forecast (out-forecasts x 4)}))
 
 (defn in
-  [location {:keys [current forecast]}]
+  [{:keys [current forecast location query]}]
   (merge
    {:location location
+    :query query
     :current_humidity (str->int (:humidity current))
     :current_weather_code (:code current)
     :current_temp_c (str->int (get-in current [:temperature :c]))}
    (in-forecasts forecast 4)))
 
 (defn forecast
-  [location]
-  (if-let [cache (cached location)]
+  [query]
+  (if-let [cache (cached query)]
     (out cache)
-    (let [data (api/location location)]
-      (future (crud/create! e/forecasts (in location data)))
+    (let [data (api/location query)]
+      (future (crud/create! e/forecasts (in data)))
       data)))

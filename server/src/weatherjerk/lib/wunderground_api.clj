@@ -34,7 +34,9 @@
          days)))
 
 (defn location
-  [location]
-  {:location location
-   :current (clean-current (conditions wkey location))
-   :forecast (clean-forecast (forecast wkey location))})
+  [query]
+  (let [current (conditions wkey query)]
+    {:location (get-in current [:display_location :full])
+     :query query
+     :current (clean-current current)
+     :forecast (clean-forecast (forecast wkey query))}))
