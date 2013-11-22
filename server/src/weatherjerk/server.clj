@@ -8,7 +8,8 @@
         ring.middleware.nested-params
         ring.middleware.session
         ring.middleware.format
-        [weatherjerk.middleware.routes :only (routes)]))
+        [weatherjerk.middleware.routes :only (routes)]
+        [environ.core]))
 
 (defn wrap-exception [f]
   (fn [request]
@@ -42,4 +43,4 @@
 (defn -main
   "Start the jetty server"
   []
-  (run-jetty #'app {:port (Integer. (get (System/getenv) "PORT" 8080)) :join? false}))
+  (run-jetty #'app {:port (Integer. (get env :port 8080)) :join? false}))
