@@ -21,13 +21,13 @@
 
 (defn by-id
   [entity id]
-  (first (-> (select* entity)
-             (where* {:id (str->int id)}))))
+  (one entity {:id id}))
 
 (defn one
   [entity conditions]
-  (-> (select* entity)
-      (where* conditions)))
+  (first (-> (select* entity)
+             (where conditions)
+             (select))))
 
 (defmacro all
   [entity & clauses]

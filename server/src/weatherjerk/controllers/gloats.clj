@@ -3,11 +3,13 @@
             [korma.core :refer :all]
             [weatherjerk.db.entities :as e]
             [weatherjerk.db.crud :as crud]
-            [weatherjerk.controllers.shared :refer :all]))
+            [weatherjerk.models.gloats :as gloats]
+            [weatherjerk.controllers.shared :refer :all]
+            [flyingmachine.webutils.utils :refer :all]))
 
-(defresource show
+(defresource show [params]
   :available-media-types ["application/json"]
-  :handle-ok (fn [_] ))
+  :handle-ok (fn [_] (gloats/gloat (str->int (:id params)))))
 
 (defn update!*
   [params]

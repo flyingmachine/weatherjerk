@@ -29,14 +29,14 @@
         Weather Jerk
       </div>
     </div>
-    <div id="main" class="container" ng-controller="NewGloatsCtrl">
+    <div id="main" class="container" ng-controller="FoundationCtrl">
       <div class="unit">
         <ul>
           <li>
             <label ng-class="{selected: settings.unit=='f'}">
               <input type="radio" ng-model="settings.unit" value="f">
               Fahrenheit
-          </label>
+            </label>
           </li>
           <li>
             <label ng-class="{selected: settings.unit=='c'}">
@@ -46,39 +46,7 @@
           </li>
         </ul>
       </div>
-      <div class="share" ng-class="{ready: gloat}">
-        <div ng-hide="gloat">
-          Get both forecasts to gloat
-        </div>
-        <div ng-show="gloat">
-          Gloat with this URL:
-          <span ng-click="selectText($event)">
-            http://weatherjerk.com/#/gloats/{{gloat.id}}
-          </span>
-        </div>
-      </div>
-      <div ng-controller="ForecastsCtrl" class="forecast">
-        <h2>Your Awesome Forecast</h2>
-        <form ng-submit="getForecastData('gloater')">
-          <div>
-            <input type="text" ng-model="forecast" placeholder="Your zip or city"/>
-            <input type="submit" />
-          </div>
-          <activity status="status"></activity>
-          <forecast data="forecasts.gloater"></forecast>
-        </form>
-      </div>
-      <div ng-controller="ForecastsCtrl" class="forecast">
-        <h2>Some Poor Slob's Forecast</h2>
-        <form ng-submit="getForecastData('poorSlob')">
-          <div>
-            <input type="text" ng-model="forecast" placeholder="Some poor slob's zip or city" />
-            <input type="submit" />
-          </div>
-          <activity status="status"></activity>
-          <forecast data="forecasts.poorSlob"></forecast>
-        </form>
-      </div>
+      <ng-view></ng-view>
     </div>
 
     <script src="components/angular/angular.js"></script>
@@ -96,8 +64,10 @@
     <script src="scripts/directives/error-messages.js"></script>
     <script src="scripts/directives/forecast.js"></script>
     <script src="scripts/directives/forecast-icon.js"></script>
+    <script src="scripts/controllers/foundation.js"></script>
     <script src="scripts/controllers/forecasts.js"></script>
     <script src="scripts/controllers/gloats/new.js"></script>
+    <script src="scripts/controllers/gloats/show.js"></script>
     <script src="scripts/services/gloat.js"></script>
     <script src="scripts/services/weather-code.js"></script>
     <!-- endbuild -->
