@@ -200,4 +200,16 @@ td {
   @include leader;
 }
 
+.share {
+  @include trailer;
+  padding: .75em $gutter-width;
+  @include single-transition(all, 0.5s, ease-in-out, 0);
+  @include border-radius(3px);
+  clear: both;
+  background: rgba(255, 255, 255, 0.4);
+  &.ready {
+    background: #fff9b2;
+  }
+}
+
 @import "layout";

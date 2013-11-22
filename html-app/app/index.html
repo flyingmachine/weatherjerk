@@ -46,13 +46,15 @@
           </li>
         </ul>
       </div>
-      <div class="share">
+      <div class="share" ng-class="{ready: gloat}">
         <div ng-hide="gloat">
           Get both forecasts to gloat
         </div>
         <div ng-show="gloat">
           Gloat with this URL:
-          http://weatherjerk.com/#/gloats/{{gloat.id}}
+          <span ng-click="selectText($event)">
+            http://weatherjerk.com/#/gloats/{{gloat.id}}
+          </span>
         </div>
       </div>
       <div ng-controller="ForecastsCtrl" class="forecast">

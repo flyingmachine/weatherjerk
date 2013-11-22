@@ -1,5 +1,20 @@
 'use strict'
 angular.module('weatherjerkApp').controller 'NewGloatsCtrl', ($scope, $http, Gloat) ->
+  $scope.selectText = ($event)->
+    doc = document
+    text = $event.target
+
+    if (doc.body.createTextRange)
+      range = doc.body.createTextRange();
+      range.moveToElementText(text);
+      range.select();
+    else if window.getSelection
+      selection = window.getSelection();            
+      range = doc.createRange();
+      range.selectNodeContents(text);
+      selection.removeAllRanges();
+      selection.addRange(range);
+  
   $scope.settings = unit: "f"
   $scope.forecasts =
     gloater: null
