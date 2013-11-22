@@ -6,6 +6,7 @@
   :repositories [["central-proxy" "http://repository.sonatype.org/content/repositories/central/"]]
   
   :uberjar-name "weatherjerk-standalone.jar"
+  :min-lein-version "2.0.0"
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojure-contrib "1.2.0"]
