@@ -1,8 +1,5 @@
 (ns weatherjerk.controllers.shared
-  (:require [weatherjerk.db.query :as db])
   (:use [flyingmachine.webutils.validation :only (if-valid)]
-        weatherjerk.models.permissions
-        weatherjerk.db.mapification
         weatherjerk.utils))
 
 (defn invalid
@@ -41,11 +38,6 @@
   [ctx]
   {:errors (get ctx :errors)})
 
-(defn delete-record-in-ctx
-  [ctx]
-  (db/t [{:db/id (get-in ctx [:record :id])
-          :content/deleted true}]))
-
 (defmacro can-delete-record?
   [record auth]
   `(fn [_#]
@@ -63,13 +55,3 @@
                 (or (moderator? auth#)
                     (author? record# auth#)))
          {:record record#}))))
-
-(defn create-record
-  [creation-fn params mapifier]
-  (fn [_]
-    (let [result (creation-fn params)]
-      {:record (mapify-tx-result result mapifier)})))
-
-(defn create-content
-  [creation-fn params auth mapifier]
-  (create-record creation-fn (merge params {:author-id (:id auth)}) mapifier))

@@ -1,9 +1,11 @@
 'use strict'
-angular.module('weatherjerkApp').controller 'NewGloatsCtrl', ($scope, $http) ->
+angular.module('weatherjerkApp').controller 'NewGloatsCtrl', ($scope, $http, Gloat) ->
   $scope.settings = unit: "f"
   $scope.forecasts =
     gloater: null
     poorSlob: null
+
+  $scope.gloat = null
 
   compareTemperatures = (t1, t2)->
     c: t1.c - t2.c
@@ -23,9 +25,17 @@ angular.module('weatherjerkApp').controller 'NewGloatsCtrl', ($scope, $http) ->
     compare(f1, f2)
     compare(f2, f1)
 
-  compareWhenReady = ->
+  onFilledOut = ->
     if $scope.forecasts.gloater && $scope.forecasts.poorSlob
       compareForecasts($scope.forecasts.gloater, $scope.forecasts.poorSlob)
+      createGloat()
 
-  $scope.$watch 'forecasts.gloater', compareWhenReady
-  $scope.$watch 'forecasts.poorSlob', compareWhenReady
+  createGloat = ->
+    gloat = new Gloat
+      gloater_forecast_id: $scope.forecasts.gloater.id
+      poor_slob_forecast_id: $scope.forecasts.poorSlob.id
+    gloat.$save (g)->
+      $scope.gloat = g
+
+  $scope.$watch 'forecasts.gloater', onFilledOut
+  $scope.$watch 'forecasts.poorSlob', onFilledOut

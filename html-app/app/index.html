@@ -46,6 +46,15 @@
           </li>
         </ul>
       </div>
+      <div class="share">
+        <div ng-hide="gloat">
+          Get both forecasts to gloat
+        </div>
+        <div ng-show="gloat">
+          Gloat with this URL:
+          http://weatherjerk.com/#/gloats/{{gloat.id}}
+        </div>
+      </div>
       <div ng-controller="ForecastsCtrl" class="forecast">
         <h2>Your Awesome Forecast</h2>
         <form ng-submit="getForecastData('gloater')">
@@ -87,6 +96,7 @@
     <script src="scripts/directives/forecast-icon.js"></script>
     <script src="scripts/controllers/forecasts.js"></script>
     <script src="scripts/controllers/gloats/new.js"></script>
+    <script src="scripts/services/gloat.js"></script>
     <script src="scripts/services/weather-code.js"></script>
     <!-- endbuild -->
   </body>

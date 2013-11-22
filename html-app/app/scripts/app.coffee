@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('weatherjerkApp', [])
+angular.module('weatherjerkApp', ['ngResource'])
   .config ($routeProvider)->
     $routeProvider
       # .when '/',

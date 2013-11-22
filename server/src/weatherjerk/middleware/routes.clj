@@ -3,6 +3,7 @@
             compojure.handler
             [ring.util.response :as resp]
             [weatherjerk.controllers.forecasts :as forecasts]
+            [weatherjerk.controllers.gloats :as gloats]
             [flyingmachine.webutils.routes :refer :all])
   (:use [compojure.core :as compojure.core :only (GET PUT POST DELETE ANY defroutes)]
         weatherjerk.config))
@@ -21,4 +22,8 @@
     
   ;; Forecasts
   (route GET "/forecasts/:location" forecasts/show)
+  
+  (resource-routes gloats :only [:create! :update! :show])
+  (route POST "/gloats/:id" gloats/update!)
+  
   (compojure.route/not-found "Sorry, there's nothing here."))
