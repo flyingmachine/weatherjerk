@@ -36,7 +36,7 @@ $total-columns  : 8;
 
 body {
   color: #444;
-  background: $color1;
+  background: $color1 url("/images/background.png");
   @include serif-family;
 }
 
