@@ -137,6 +137,15 @@ module.exports = (grunt) ->
       options:
         dirs: ["<%= yeoman.dist %>"]
 
+    imagemin:
+      dist:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.app %>/images"
+          src: "**/*.{png,jpg,jpeg}"
+          dest: "<%= yeoman.dist %>/images"
+        ]
+
     cssmin:
       dist:
         files:
@@ -190,7 +199,7 @@ module.exports = (grunt) ->
           src: [
             "<%= yeoman.dist %>/scripts/**/*.js",
             "<%= yeoman.dist %>/styles/**/*.css",
-            "<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}",
+            #"<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}",
             "<%= yeoman.dist %>/styles/fonts/*"
           ]
 
@@ -210,7 +219,7 @@ module.exports = (grunt) ->
             "views/**/*",
             "components/**/*",
             "scripts/config/*",
-            "images/**/*.{gif,webp,png}"
+            "images/**/*.{gif,webp}"
           ]
         ,
           expand: true
@@ -243,6 +252,7 @@ module.exports = (grunt) ->
     "coffee:dist",
     "compass:dist",
     "useminPrepare",
+    "imagemin",
     "cssmin",
     "htmlmin",
     "concat",
