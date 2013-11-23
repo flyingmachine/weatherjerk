@@ -212,4 +212,14 @@ td {
   }
 }
 
+footer {
+  border-top: 1px solid #fff;
+  @include span-columns(8 omega);
+  @include leader(2);
+  @include padding-leader;
+  .thanks {
+    padding: 0 $gutter-width;
+  }
+}
+
 @import "layout";
