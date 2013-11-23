@@ -54,7 +54,7 @@ h2.location {
   @include serif-family;
   @include adjust-font-size-to(28px, 1);
   @include trailer(1, 28px);
-  color: #4195db;
+  color: $color3;
 }
 
 h3 {
@@ -136,7 +136,9 @@ td {
 .forecast-data {
   @include leader;
   @include padding-leader;
+  @include padding-trailer;
   @include border-radius(3px);
+  @include single-box-shadow($color3, 0px, 1px, 1px, 0px);
   padding-left: $gutter-width;
   padding-right: $gutter-width;
   background: rgba(255, 255, 255, 0.6);
@@ -146,13 +148,18 @@ td {
     @include padding-trailer;
     border-bottom: 2px solid $color1;
     h3 {
-    margin-top: 0;
+      margin-top: 0;
     }
   }
 
   .forecast-day {
     @include clearfix;
-
+    @include trailer;
+    @include border-radius(3px);
+    @include single-box-shadow($color3, 0px, 1px, 1px, 0px);
+    padding: .75em $gutter-width;
+    background: white;
+    
     &:last-child {
       margin-bottom: 0;
     }
