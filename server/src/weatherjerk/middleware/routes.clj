@@ -12,8 +12,8 @@
   ;; Serve up angular app
   (apply compojure.core/routes
          (map #(compojure.core/routes
-                (GET "/" [] (compojure.route/files "index.html" {:root %}))
-                (GET "/" [] (compojure.route/resources "index.html" {:root %})))
+                (GET "/" [] (compojure.route/resources "index.html" {:root %}))
+                (GET "/" [] (compojure.route/files "index.html" {:root %})))
               (config :app :html-paths)))
   
   (apply compojure.core/routes
