@@ -1,5 +1,7 @@
 'use strict'
 angular.module('weatherjerkApp').controller 'GloatsNewCtrl', ($scope, $http, Gloat) ->
+  $ ->
+    $(".forecast-form input").first().select()
   # TODO this belongs in a directive
   $scope.selectText = ($event)->
     doc = document

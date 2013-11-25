@@ -229,4 +229,8 @@ footer {
   }
 }
 
+.forecast-form input[type=text]:focus {
+  background: #fefcdf;
+}
+
 @import "layout";
