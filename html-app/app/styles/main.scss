@@ -73,10 +73,11 @@ h4 {
 
 a {
   text-decoration: none;
+  color: $color3;
 }
 
 a:visited {
-
+  color: #a46ce3;
 }
 
 a:hover {
@@ -224,8 +225,9 @@ footer {
   @include span-columns(8 omega);
   @include leader(2);
   @include padding-leader;
-  .thanks {
+  .thanks, .attribution {
     padding: 0 $gutter-width;
+    @include trailer;
   }
 }
 
